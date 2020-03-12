@@ -1,8 +1,64 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+
+body {
+  @apply mb-20;
+}
+
+h1 {
+  font-family: "Lato", sans-serif;
+}
 
 #icon-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 8rem)
+  @apply grid grid-cols-1 gap-4 justify-center;
 }
+
+@screen sm {
+  #icon-list {
+    @apply grid-cols-2;
+  }
+}
+@screen md {
+  #icon-list {
+    @apply grid-cols-6;
+  }
+}
+@screen lg {
+  #icon-list {
+    @apply grid-cols-8;
+  }
+}
+@screen xl {
+  #icon-list {
+    @apply grid-cols-12;
+  }
+}
+
+.icon-holder {
+  @apply rounded text-center inline-block;
+}
+
+.icon-holder__svg {
+  @apply border rounded-t p-4 border-b-0 shadow relative;
+}
+
+.icon-holder__name {
+  @apply overflow-hidden whitespace-no-wrap;
+  text-overflow: ellipsis;
+}
+
+.icon-holder__actions {
+  @apply flex shadow-inner bg-gray-200 rounded-b;
+}
+
+.action-button {
+  @apply p-1 flex-grow opacity-50 rounded;
+}
+.action-button:hover {
+  @apply opacity-100;
+}
+.action-button:focus {
+  @apply shadow-outline;
+}
+
+@tailwind utilities;
