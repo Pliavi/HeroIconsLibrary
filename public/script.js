@@ -52,4 +52,19 @@ fetch("./icons.json")
 
       document.getElementById("icon-list").appendChild(iconHolderClone);
     });
+  })
+  .then(() => {
+    const $allIcons = document.getElementsByClassName("icon-holder");
+    
+    document.getElementById("icon-search")
+    .addEventListener("keyup", ({ target }) => {
+        console.log($allIcons)
+        for (const $icon of $allIcons) {
+          if ($icon.getAttribute("data-keywords").includes(target.value)) {
+            $icon.removeAttribute("style");
+            continue;
+          }
+          $icon.setAttribute("style", "display: none !important");
+        }
+      });
   });
